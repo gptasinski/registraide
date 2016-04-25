@@ -1,0 +1,41 @@
+<div class="container-fluid">
+
+  <div class="col-md-10">
+    <div class="row course-title-box">
+      <div class="col-md-1 head code-col">CODE</div>
+      <div class="col-md-5 head">NAME & DESCRIPTION</div>
+      <!-- <div class="col-md-4 head">DESCRIPTION</div> -->
+      <div class="col-md-1 head">SEATS</div>
+      <div class="col-md-1 head">PERIOD</div>
+      <div class="col-md-1 head">CLOSED</div>
+    </div>
+    <div class="row pre-scrollable course-box">
+      <% sections_by_course_name(@sections).each do |section| %>
+      <div class="row">
+        <div class="col-md-1 code-col bold"><%= section.code %></div>
+        <div class="col-md-5">
+          <div class="bold"><%= section.name %></div>
+          <div class="col-md-offset-1"><%= section.description %></div>
+        </div>
+
+        <div class="col-md-1"><%= section.seats %></div>
+        <div class="col-md-1"><%= section.period_id %></div>
+        <div class="col-md-1"><%= section.closed %></div>
+        <% if current_user.admin %>
+          <div class="col-md-1">
+            <%= link_to 'Edit', edit_course_section_path(@course, section), class: "btn btn-default btn-sm" %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to 'Delete', course_section_path(@course, section),method: :delete, data: { confirm: "Are you shure you want to delete #{ section.code }?" }, class: "btn btn-default btn-sm" %>
+          </div>
+        <% else %>
+          <div class="col-md-1">
+            <%= link_to 'Register', new_course_section_enrollment_path(@course, section), class: "btn btn-default btn-sm" %>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<h5>sections/all - ALL CLASSES(sections)</h5>

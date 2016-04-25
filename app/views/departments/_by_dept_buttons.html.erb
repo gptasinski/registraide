@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <div class="col-md-2 by-box">
+    <% department_order.each do |department| %>
+    <div class="row">
+      <%= link_to "#{ department.name }", department_path(department), class: "btn btn-default btn-sm top-buttons dept-btns", id: "dept/#{department.id}" %>
+    </div>
+    <% end %>
+  </div>
+</div>

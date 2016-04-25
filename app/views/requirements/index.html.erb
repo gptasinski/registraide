@@ -1,0 +1,26 @@
+<h5>requirements/index page - ALL REQUIREMENTS</h5>
+
+<div class="container box">
+  <h4>FRESHMAN REQUIREMENTS</h4>
+  <%= render '/shared/requirement_meta_heads' %>
+  <%= render partial: '/shared/requirement_meta', locals: { grade_level: "freshman", requirement: "requirement" } %>
+</div>
+
+<div class="container box">
+  <h4>SOPHOMORE REQUIREMENTS</h4>
+  <%= render '/shared/requirement_meta_heads' %>
+  <%= render partial: '/shared/requirement_meta', locals: { grade_level: "sophomore", requirement: "requirement" } %>
+</div>
+
+<div class="container box">
+  <h4>JUNIOR REQUIREMENTS</h4>
+  <%= render '/shared/requirement_meta_heads' %>
+  <%= render partial: '/shared/requirement_meta', locals: { grade_level: "junior", requirement: "requirement" } %>
+</div>
+
+<div class="container box">
+  <h4>SENIOR REQUIREMENTS</h4>
+  <%= render '/shared/requirement_meta_heads' %>
+  <%= render partial: '/shared/requirement_meta', locals: { grade_level: "senior", requirement: "requirement" } %>
+</div>
+

@@ -1,0 +1,12 @@
+<% grade_requirements(grade_level).each do |requirement| %>
+<% if requirement.course %>
+  <div class="row">
+    <div class="col-md-2"><%= requirement.grade_level %></div>
+    <div class="col-md-2"><%= requirement.course.name %></div>
+    <div class="col-md-2"><%= requirement.course.title %></div>
+    <div class="col-md-2"><%= requirement.course.prereq %></div>
+    <div class="col-md-2"><%= requirement.course.department.name %></div>
+    <div class="col-md-2"><%= requirement.course.diploma_program %></div>
+  </div>
+<% end %>
+<% end %>

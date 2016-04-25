@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="col-md-10">
+    <h4 class="head">All Students</h4>
+    <%= render '/shared/student_data' %>
+    <div class="col-md-offset-10 col-md-2">
+      <%= link_to 'Download as CSV', users_path(format: :csv), class: "btn btn-default btn-sm" %>
+    </div>
+  </div>
+</div>
+
+
+<h5>users/index page - ALL USERS</h5>

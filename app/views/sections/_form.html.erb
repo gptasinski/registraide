@@ -1,0 +1,41 @@
+<div class="form-group">
+  <%= form.label :name, class: "col-md-2 control-label text-right" %>
+  <div class="col-md-10">
+    <%= form.text_field :name, required: true, placeholder: "name of class offered this semester", class: "col-md-4 form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :code, class: "col-md-2 control-label text-right" %>
+  <div class="col-md-10">
+    <%= form.text_field :code, required: true, placeholder: "0101ART-1", class: "col-md-4 form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :description, class: "col-md-2 control-label text-right" %>
+  <div class="col-md-10">
+    <%= form.text_area :description, required: true, placeholder: "detailed description of that semesters class", class: "col-md-4 form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :seats, class: "col-md-2 control-label text-right" %>
+  <div class="col-md-10">
+    <%= form.text_field :seats, required: true, class: "col-md-4 form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :period, class: "col-md-2 control-label text-right" %>
+  <div class="col-md-10">
+    <%= form.text_field :period_id, required: true, class: "col-md-4 form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :closed, class: "col-md-2 control-label text-right" %>
+  <div class="col-md-10">
+    <%= form.text_field :closed, required: true, class: "col-md-4 form-control" %>
+  </div>
+</div>

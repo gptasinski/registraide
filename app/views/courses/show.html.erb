@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="col-md-10">
+    <div class="row course-title-box">
+      <div class="col-md-1 head code-col">CODE</div>
+      <div class="col-md-2 head">NAME</div>
+      <div class="col-md-1 head"></div>
+      <div class="col-md-4 head">DESCRIPTION</div>
+      <div class="col-md-1 head">SEATS</div>
+      <div class="col-md-1 head">PERIOD</div>
+    </div>
+
+    <% @sections.each do |section| %>
+    <div class="row pre-scrollable course-box">
+      <div class="col-md-1 code-col"><%= section.code %></div>
+      <div class="col-md-2"><%= section.name %></div>
+      <div class="col-md-1 bold"><%= section.status %></div>
+      <div class="col-md-4"><%= section.description %></div>
+      <div class="col-md-1"><%= section.seats %></div>
+      <div class="col-md-1"><%= section.period_id %></div>
+      <% if current_user.admin %>
+      <div class="col-md-1">
+        <%= link_to 'Edit', edit_course_section_path(@course, section), class: "btn btn-default btn-sm" %>
+      </div>
+      <div class="col-md-1">
+        <%= link_to 'Delete', course_section_path(@course, section), method: :delete, data: { confirm: "Are you sure you want to delete #{ section.code }?" }, class: "btn btn-default btn-sm" %>
+      </div>
+      <% else %>
+        <% if !section.closed  %>
+        <div class="col-md-1">
+          <%= link_to 'Register', new_course_section_enrollment_path(@course, section), class: "btn btn-default btn-sm" %>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+<% if current_user.admin %>
+<div class="container-fluid">
+  <div class="col-md-2">
+    <div class="row">
+        <%= link_to 'Add a New Class', new_course_section_path(@course), class: "btn btn-default btn-sm new-cl-btn" %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% if current_user.admin %>
+  <div class="container-fluid">
+    <div class="col-md-2"></div>
+    <div class="col-md-10 box">
+    <h4 class="head">Students enrolled in <%= @course.name %></h4>
+    <%= render '/shared/student_data' %>
+    </div>
+  </div>
+<% end %>
+
+
+
+<h5>courses/show page - CLASSES(sections) FOR A COURSE</h5>

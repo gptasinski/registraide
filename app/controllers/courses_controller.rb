@@ -1,0 +1,52 @@
+class CoursesController < ApplicationController
+  include CourseHelper
+
+  def index
+    @courses = Course.all
+  end
+
+  def show
+    @course = Course.find_by(id: params[:id])
+    @sections = @course.sections
+    @students = @course.students
+  end
+
+  def new
+    @course = Course.new
+  end
+
+  def edit
+    @course = Course.find_by(id: params[:id])
+  end
+
+  def create
+    @course = Course.new(course_params)
+
+    if @course.save
+      @course.set_department
+      redirect_to courses_path
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    @course = Course.find(params[:id])
+    if @course.update(course_params)
+      redirect_to courses_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @course = Course.find_by(id: params[:id])
+    @course.destroy
+    redirect_to courses_path
+  end
+
+  private
+    def course_params
+      params.require(:course).permit(:name, :number, :title, :description, :prereq)
+    end
+end

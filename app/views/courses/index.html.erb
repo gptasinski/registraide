@@ -1,0 +1,59 @@
+<div class="container-fluid">
+
+  <div class="col-md-10">
+    <div class="row course-title-box">
+      <div class="col-md-1 head">NAME</div>
+      <div class="col-md-1 head">NUMBER</div>
+      <div class="col-md-1 head"></div>
+      <div class="col-md-5 head">TITLE & DESCRIPTION</div>
+      <div class="col-md-2 head">PREREQ</div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row pre-scrollable course-box">
+      <% course_order.each do |course| %>
+      <div class="row course-output">
+        <div class="col-md-1">
+          <div class="bold"><%= course.name %></div>
+        </div>
+        <div class="col-md-1"><%= course.number %></div>
+        <div class="col-md-1">
+          <%= link_to "#{course.seats_available}", course_path(course), class: "btn btn-default btn-sm" %>
+        </div>
+        <div class="col-md-5">
+          <div class="bold"><%= course.title %></div>
+          <div class="col-md-offset-1"><%= course.description %></div>
+        </div>
+        <div class="col-md-2 prereq">
+          <div class="row"><%= course.prereq %></div>
+        </div>
+        <div class="col-md-2">
+          <% if current_user.admin %>
+            <%= link_to 'Edit', edit_course_path(course), class: "btn btn-default btn-sm" %>
+            <%= link_to 'Delete', course_path(course), method: :delete, data: { confirm: "Are you sure you want to delete #{ course.name }?" }, class: "btn btn-default btn-sm" %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- old shit below here -->
+
+
+
+
+
+
+
+
+
+
+
+<h5>courses/index page - ALL COURSES</h5>

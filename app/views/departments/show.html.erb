@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-1 head code-col">CODE</div>
+      <div class="col-md-1 head">NAME</div>
+      <div class="col-md-1 head"></div>
+      <div class="col-md-4 head">DESCRIPTION</div>
+      <div class="col-md-1 head">SEATS</div>
+      <div class="col-md-1 head">PERIOD</div>
+    </div>
+
+    <% @department.sections.each do |section| %>
+      <div class="row">
+        <div class="col-md-1 code-col bold"><%= section.code %></div>
+        <div class="col-md-1"><%= section.name %></div>
+        <div class="col-md-1 bold"><%= section.status %></div>
+        <div class="col-md-4"><%= section.description %></div>
+        <div class="col-md-1"><%= section.seats %></div>
+        <div class="col-md-1"><%= section.period_id %></div>
+        <% if current_user.admin %>
+        <div class="col-md-1">
+          <%= link_to 'Edit', edit_course_section_path(section.course, section), class: "btn btn-default btn-sm" %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to 'Delete', course_section_path(section.course, section), method: :delete, data: { confirm: "Are you sure you want to delete #{ section.code }?" }, class: "btn btn-default btn-sm" %>
+        </div>
+        <% else %>
+        <div class="col-md-1">
+          <%= link_to 'Register', new_course_section_enrollment_path(section.course, section), class: "btn btn-default btn-sm" %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%= render 'by_dept_buttons' %>
+
+
+
+<h5>departments/show page</h5>
