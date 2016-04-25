@@ -5,11 +5,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:session][:email])
-    if @user.authenticate(params[:session][:password])
+    if @user && @user.authenticate(params[:session][:password])
       session[:id] = @user.id
       redirect_to courses_path
     else
-      render 'new'
+      flash[:message] = "Looks like you don't have an account yet. Please sign up to use this site."
+      redirect_to new_user_path
     end
   end
 

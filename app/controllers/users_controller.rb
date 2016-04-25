@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   include ApplicationHelper
   before_action :authorize, :authorized_to_edit, only: [:edit, :update, :show]
+
   def index
     @students = User.where(admin: false)
     respond_to do |format|

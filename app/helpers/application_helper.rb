@@ -16,14 +16,23 @@ module ApplicationHelper
 
   def authorized_to_edit
     @user = User.find(params[:id])
-    unless current_user.id == @user.id
-      flash[:message] = "So sorry, you don't have authorization for that."
-      redirect_to user_path(current_user)
+    unless current_user.id == @user.id || current_user.admin
+      render 'shared/not_authorized'
     end
   end
 
-  def authorized_to_register
+  def admin_auth?
+    unless current_user.admin == true
+      render 'shared/not_authorized'
+    end
+  end
 
+  def find_course
+    @course = Course.find_by(id: params[:course_id])
+  end
+
+  def find_section
+    @section = Section.find_by(id: params[:id])
   end
 
 end
