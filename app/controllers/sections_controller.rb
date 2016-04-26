@@ -1,17 +1,22 @@
 class SectionsController < ApplicationController
+  include ApplicationHelper
+  before_action :admin_auth?, except: [:all]
+  before_action :find_course, except: [:all]
+  before_action :find_section, only: [:edit, :update, :show]
+
+
+  def show
+
+  end
 
   def edit
-    @course = Course.find_by(id: params[:course_id])
-    @section = Section.find_by(id: params[:id])
   end
 
   def new
-    @course = Course.find_by(id: params[:course_id])
     @section = Section.new
   end
 
   def create
-    @course = Course.find_by(id: params[:course_id])
     @section = Section.new(section_params)
     if @section.save
       @course.sections << @section
@@ -22,8 +27,6 @@ class SectionsController < ApplicationController
   end
 
   def update
-    @course = Course.find_by(id: params[:course_id])
-    @section = Section.find(params[:id])
     if @section.update(section_params)
       redirect_to course_path(@course)
     else
@@ -32,8 +35,6 @@ class SectionsController < ApplicationController
   end
 
   def destroy
-    @course = Course.find_by(id: params[:course_id])
-    @section = Section.find_by(id: params[:id])
     @section.destroy
     redirect_to course_path(@course)
   end

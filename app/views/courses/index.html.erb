@@ -17,7 +17,11 @@
         </div>
         <div class="col-md-1"><%= course.number %></div>
         <div class="col-md-1">
-          <%= link_to "#{course.seats_available}", course_path(course), class: "btn btn-default btn-sm" %>
+          <% if course.seats_available == 0  && current_user.admin == false %>
+            <p class="bold">CLOSED</p>
+          <% else %>
+            <%= link_to "#{course.seats_available} seats", course_path(course), class: "btn btn-default btn-sm" %>
+          <% end %>
         </div>
         <div class="col-md-5">
           <div class="bold"><%= course.title %></div>

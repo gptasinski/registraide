@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
+  include ApplicationHelper
   include CourseHelper
+  before_action :admin_auth?, except: [:index, :show]
 
   def index
     @courses = Course.all
