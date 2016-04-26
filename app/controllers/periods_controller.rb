@@ -1,11 +1,11 @@
 class PeriodsController < ApplicationController
+  include ApplicationHelper
+  before_action :find_periods
 
   def index
-    @periods = Period.all
   end
 
   def show
-    @periods = Period.all
     @period = Period.find(params[:id])
   end
 

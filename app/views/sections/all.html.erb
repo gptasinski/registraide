@@ -12,7 +12,7 @@
     <div class="row pre-scrollable course-box">
       <% sections_by_course_name(@sections).each do |section| %>
       <div class="row">
-        <div class="col-md-1 code-col bold"><%= section.code %></div>
+        <div class="col-md-1 code-col bold"><%= link_to section.code, course_section_path(section.course, section), class: "btn btn-default btn-sm" %></div>
         <div class="col-md-5">
           <div class="bold"><%= section.name %></div>
           <div class="col-md-offset-1"><%= section.description %></div>

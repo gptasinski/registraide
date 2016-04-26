@@ -35,4 +35,8 @@ module ApplicationHelper
     @section = Section.find_by(id: params[:id])
   end
 
+  def find_periods
+    @periods = Period.all
+  end
+
 end
