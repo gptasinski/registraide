@@ -9,7 +9,7 @@
   </div>
 
   <% @students.each do |student| %>
-    <div class="row">
+    <div class="row output">
       <div class="col-md-1"><%= student_index(student) %></div>
       <div class="col-md-2"><%= student.last_name %></div>
       <div class="col-md-1"><%= student.first_name %></div>
@@ -17,6 +17,6 @@
       <div class="col-md-1"><%= student.id_number %></div>
       <div class="col-md-2"><%= student.current_homeroom %></div>
       <div class="col-md-2"><%= student.grade_level %></div>
-      <div class="col-md-1"><%= link_to 'Schedule', user_path(student), class: "btn btn-default btn-sm" %></div>
+      <div class="col-md-1"><%= link_to 'Schedule', user_path(student), class: "btn btn-default btn-sm my-btn" %></div>
     </div>
   <% end %>
