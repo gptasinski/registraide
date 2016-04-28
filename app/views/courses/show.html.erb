@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="col-md-10">
-    <div class="row course-title-box">
+    <div class="row">
       <div class="col-md-1 head code-col">CODE</div>
-      <div class="col-md-2 head">NAME</div>
+      <div class="col-md-2 head">COURSE NAME</div>
       <div class="col-md-1 head"></div>
       <div class="col-md-4 head">DESCRIPTION</div>
       <div class="col-md-1 head">SEATS</div>
@@ -10,13 +10,13 @@
     </div>
 
     <% @sections.each do |section| %>
-    <div class="row pre-scrollable course-box">
+    <div class="row pre-scrollable output">
       <div class="col-md-1 code-col"><%= section.code %></div>
-      <div class="col-md-2"><%= section.name %></div>
+      <div class="col-md-2 "><%= section.name %></div>
       <div class="col-md-1 bold"><%= section.status %></div>
       <div class="col-md-4"><%= section.description %></div>
-      <div class="col-md-1"><%= section.seats %></div>
-      <div class="col-md-1"><%= section.period_id %></div>
+      <div class="col-md-1 text-center"><%= section.seats %></div>
+      <div class="col-md-1 text-center"><%= section.period_id %></div>
       <% if current_user.admin %>
       <div class="col-md-1">
         <%= link_to 'Edit', edit_course_section_path(@course, section), class: "btn btn-default btn-sm" %>
@@ -50,7 +50,7 @@
 <% if current_user.admin %>
   <div class="container-fluid">
     <div class="col-md-2"></div>
-    <div class="col-md-10 box">
+    <div class="col-md-10">
     <h4 class="head">Students enrolled in <%= @course.name %></h4>
     <%= render '/shared/student_data' %>
     </div>

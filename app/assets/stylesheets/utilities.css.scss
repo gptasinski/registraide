@@ -91,7 +91,9 @@ body {
 }
 
 .course-output {
+  margin-top: 1%;
   margin-bottom: 1%;
+  border-bottom: 1px solid black;
 }
 
 .all-box {
@@ -150,7 +152,6 @@ body {
   margin-top: 10%;
 }
 
-
 .course-box {
   border: 1px solid black;
   padding-left: 1%;
@@ -185,4 +186,24 @@ body {
 
 .enrol-msg-box {
   margin-top: 5%;
+}
+
+.closed {
+  color: red;
+  font-weight: bold;
+}
+
+.output {
+  border-bottom: 1px solid black;
+  margin-top: 1%;
+  margin-bottom: 0%;
+}
+
+.my-btn {
+  margin-bottom: 10%;
+}
+
+.big-logo {
+  margin-top: 2%;
+  width: 100%;
 }

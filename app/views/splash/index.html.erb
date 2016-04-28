@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-3 col-md-8">
-      <p>Welcome to My Imagination International High School's Registraide <br>
-        If you are a student and new to the site, start by signing up with your SCHOOL email account<br>
-        After sign up you can access the site with your SCHOOL email and secure password<br>
-        If you are an administrator, login with your SCHOOL email and secure password<br>
-      </p>
-    </div>
+    <%= image_tag "big_logo.jpg" %>
+  </div>
+  <div class="row">
+    <!-- <div class="col-md-offset-4 col-md-6"> -->
+      <div class="col-md-offset-5 col-md-1"><%= link_to 'Sign Up', new_user_path, class: "btn btn-lg btn-default", id: "sign-up" %></div>
+      <div class="col-md-2"><%= link_to 'Log In', login_path, class: "btn btn-lg btn-default", id: "log-in" %></div>
+    <!-- </div> -->
   </div>
   <div class="row">
     <div class="col-md-offset-2 col-md-8", id="replacement-space"></div>
