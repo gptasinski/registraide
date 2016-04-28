@@ -12,11 +12,11 @@
     <div class="container-fluid">
       <div class="row">
         <% if !current_user %>
-          <div class="col-md-offset-4 col-md-4 text-center"><%= image_tag "big_logo.jpg", class: "big-logo" %></div>
+          <div class="col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 text-center"><%= image_tag "big_logo.jpg", class: "big-logo" %></div>
         <% else %>
-          <div class="col-md-4"><%= link_to 'Courses', courses_path(@courses) %> | <%= link_to 'Back', :back %></div>
-          <div class="col-md-4 text-center"><%= image_tag "big_logo.jpg", class: "big-logo" %></div>
-          <div class="col-md-4 text-right prof-line">
+          <div class="col-md-4 col-sm-4"><%= link_to 'Courses', courses_path(@courses) %> | <%= link_to 'Back', :back %></div>
+          <div class="col-md-4 col-sm-4 text-center"><%= image_tag "big_logo.jpg", class: "big-logo" %></div>
+          <div class="col-md-4 col-sm-4 text-right prof-line">
             Signed in as: <a href="/users/<%= current_user.id %>"><%= current_user.first_name %> <%= current_user.last_name %></a> | <%= link_to 'Logout', logout_path %>
           </div>
         <% end %>
