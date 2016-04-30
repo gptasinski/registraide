@@ -1,11 +1,11 @@
 body {
-  padding-top: 15%;
+  padding-top: 11%;
   background-color: #e6e7e2;
 }
 
 .navbar {
-  height: 10%;
-  background-color: #e6e7e2;
+  height: 11%;
+  line-height: 70px;
 }
 
 .logo {
@@ -76,7 +76,7 @@ body {
 }
 
 .classes-by-box {
-  margin-top: 5%;
+  margin-top: -2%;
 }
 
 .bold {
@@ -198,5 +198,11 @@ body {
 
 .big-logo {
   margin-top: 2%;
-  width: 100%;
+  width: 50%;
+}
+
+.row-btns {
+  width: 70%;
+  text-align: center;
+  margin-bottom: 1%;
 }
