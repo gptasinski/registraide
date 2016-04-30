@@ -1,19 +1,15 @@
 // $(document).ready(function () {
 
-//   $("#department").on("click", function () {
+//   $("#departments").on("click", function () {
 //     event.preventDefault();
 //     console.log("more and more buttons");
-
+//     var url = $(this).attr("href")
 //     var request = $.ajax({
-//       url: 'views/departments/by_dept_buttons'
+//       url: url
 //     })
 
 //     request.done(function (response) {
-//       var abc = abc;
-//     })
-
-//     request.fail(function (response) {
-//       var abc = abc;
+//       $(".classes").append(response);
 //     })
 //   });
 

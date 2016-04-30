@@ -6,9 +6,6 @@
 
 <div class="container">
   <div class="row">
-    <%= image_tag "big_logo.jpg", class: "big-logo" %>
-  </div>
-  <div class="row">
     <div class="col-md-offset-2 col-md-7">
       <%= form_for @user, class: "form-horizontal" do |form| %>
       <%= render partial: 'form', locals: { form: form } %>
@@ -21,6 +18,4 @@
     </div>
   </div>
 </div>
-
-<h1>the users/new page</h1>
 
