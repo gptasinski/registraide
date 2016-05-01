@@ -13,7 +13,9 @@
     <div class="row pre-scrollable output">
       <div class="col-md-1 code-col"><%= section.code %></div>
       <div class="col-md-2 "><%= section.name %></div>
-      <div class="col-md-1 bold"><%= section.status %></div>
+      <div class="col-md-1">
+        <%= render partial: 'shared/section_closed', locals: {section: section} %>
+      </div>
       <div class="col-md-4"><%= section.description %></div>
       <div class="col-md-1 text-center"><%= section.seats %></div>
       <div class="col-md-1 text-center"><%= section.period_id %></div>
