@@ -23,8 +23,9 @@
       </div>
     </div>
   </nav>
-
-  <%= render 'shared/classes_by' %>
+  <% if current_user %>
+    <%= render 'shared/classes_by' %>
+  <% end %>
 
 
 <%= yield %>
