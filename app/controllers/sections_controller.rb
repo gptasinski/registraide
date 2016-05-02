@@ -6,7 +6,9 @@ class SectionsController < ApplicationController
 
 
   def show
-
+    @section = Section.find_by(id: params[:id])
+    @students = @section.students
+    # raise params.inspect
   end
 
   def edit
