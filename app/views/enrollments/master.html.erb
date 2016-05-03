@@ -1,0 +1,22 @@
+<div class="container -fluid">
+
+  <div class="col-md-10">
+    <% @enrollments.each do |enrollment| %>
+    <% if enrollment.student %>
+    <div class="row">
+      <div class="col-md-3"><%= enrollment.section.name %></div>
+      <div class="col-md-2"><%= enrollment.section.code %></div>
+
+      <div class="col-md-1"><%= enrollment.student.id_number %></div>
+      <div class="col-md-1"><%= enrollment.student.last_name %></div>
+      <div class="col-md-1"><%= enrollment.student.first_name %></div>
+      <div class="col-md-3"><%= enrollment.student.email %></div>
+      <div class="col-md-1"><%= enrollment.student.grade_level %></div>
+      </div>
+      <% end %>
+    <% end %>
+    <div class="col-md-4">
+    <%= link_to 'Download as CSV', enrollments_master_path(format: :csv), class: "btn btn-default btn-sm new-cl-btn" %>
+    </div>
+  </div>
+</div>

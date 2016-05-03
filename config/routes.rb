@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   get '/sections/all'
   get '/enrollments/all'
+  get '/enrollments/master'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
