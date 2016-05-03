@@ -1,9 +1,10 @@
 <div class="container-fluid">
 
   <div class="col-md-10 master-box">
+    <%= link_to 'Download as CSV', master_courses_path(format: :csv), class: "btn btn-default btn-sm" %>
     <% @courses.each do |course| %>
       <div class="row master-course">
-        <div>COURSE: <%= course.number %> | <%= course.name %></div>
+        <div>COURSE: <%= course.name %></div>
       </div>
 
         <% course.sections.each do |section| %>

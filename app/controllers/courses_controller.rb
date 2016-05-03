@@ -49,6 +49,13 @@ class CoursesController < ApplicationController
 
   def master
     @courses = Course.all
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"courses-master\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   private
