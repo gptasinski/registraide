@@ -47,6 +47,10 @@ class CoursesController < ApplicationController
     redirect_to courses_path
   end
 
+  def master
+    @courses = Course.all
+  end
+
   private
     def course_params
       params.require(:course).permit(:name, :number, :title, :description, :prereq)

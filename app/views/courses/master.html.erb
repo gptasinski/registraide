@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+  <div class="col-md-10 master-box">
+    <% @courses.each do |course| %>
+      <div class="row master-course">
+        <div>COURSE: <%= course.number %> | <%= course.name %></div>
+      </div>
+
+        <% course.sections.each do |section| %>
+          <div class="row">
+            <div class="col-md-8">SECTION: <%= section.code %> | <%= section.name %></div>
+            <div class="col-md-4">ENROLLED: <%= section.students.count %></div>
+          </div>
+
+          <% section.students.each do |student| %>
+          <div class="row">
+            <div class="col-md-offset-1 col-md-2"><%= student.last_name %>, <%= student.first_name %></div>
+            <div class="col-md-2"><%= student.email %></div>
+            <div class="col-md-1"><%= student.id_number %></div>
+            <div class="col-md-2"><%= student.current_homeroom %></div>
+            <div class="col-md-2"><%= student.grade_level %></div>
+          </div>
+          <% end %>
+        <% end %>
+    <% end %>
+
+  </div>
+
+</div>
