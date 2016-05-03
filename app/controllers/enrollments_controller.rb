@@ -2,6 +2,8 @@ class EnrollmentsController < ApplicationController
   include EnrollmentHelper
   before_action :find_user, :find_course, :find_section
 
+
+
   def new
     @enrollment = Enrollment.new(student_id: @user_id)
   end

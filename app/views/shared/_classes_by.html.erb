@@ -16,7 +16,8 @@
   <% if current_user.admin %>
     <%= link_to 'Add New Course', new_course_path, class: "btn btn-default btn-sm top-buttons" %>
     <%= link_to 'All Students', users_path, class: "btn btn-default btn-sm top-buttons" %>
-    <%= link_to 'All Enrollments', enrollments_all_path, class: "btn btn-default btn-sm top-buttons" %>
+    <%= link_to 'All Student Enrollments', enrollments_all_path, class: "btn btn-default btn-sm top-buttons" %>
+    <%= link_to 'All Course Enrollments', master_courses_path, class: "btn btn-default btn-sm top-buttons" %>
   <% end %>
 </div>
 

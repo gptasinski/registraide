@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :courses do
+    collection do
+        get :master
+      end
     resources :sections do
       resources :enrollments do
       end
