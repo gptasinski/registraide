@@ -5,7 +5,7 @@
   <%- course.sections.each do |section| -%>
     <%= CSV.generate_line([section.code, section.name, section.students.count]) %>
     <%- section.students.each do |student| -%>
-      <%= CSV.generate_line([student.last_name, student.first_name, student.email, student.id_number, student.current_homeroom, student.gradelevel]) %>
+      <%= CSV.generate_line([student.last_name, student.first_name, student.email, student.id_number, student.current_homeroom, student.grade_level]) %>
     <%- end -%>
   <%- end -%>
 <%- end -%>

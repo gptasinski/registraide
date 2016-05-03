@@ -45,4 +45,15 @@ class EnrollmentsController < ApplicationController
     end
   end
 
+  def master
+    @enrollments = Enrollment.all.sort_by { |e| e.section.name}
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"all-master-enrollments\""
+        headers["Content-Type"] ||= 'text/csv'
+      end
+    end
+  end
+
 end
