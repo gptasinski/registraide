@@ -1,7 +1,6 @@
 <div class="container-fluid">
 
   <div class="col-md-10 master-box">
-    <%= link_to 'Download as CSV', master_courses_path(format: :csv), class: "btn btn-default btn-sm" %>
     <% @courses.each do |course| %>
       <div class="row master-course">
         <div>COURSE: <%= course.name %></div>
@@ -10,7 +9,7 @@
         <% course.sections.each do |section| %>
           <div class="row">
             <div class="col-md-8">SECTION: <%= section.code %> | <%= section.name %></div>
-            <div class="col-md-4">ENROLLED: <%= section.students.count %></div>
+            <div class="col-md-4">ENROLLED: <%= section.students.count %>/<%= possible_seats(section) %></div>
           </div>
 
           <% section.students.each do |student| %>
