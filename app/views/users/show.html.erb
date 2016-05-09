@@ -4,9 +4,16 @@
 
 <div class="container-fluid">
   <div class="col-md-10">
-    <h4 class="head">
+    <div class="row">
+      <p class="message"><b>ATTENTION!</b></br>
+        Once you have been registered for a full schedule, you can no longer drop or add classes.</br>
+        If changes have to be made, you must obtain the special permission of an administrator.</br>
+        Schedules <b>CAN NOT</b> be edited once they are complete!</br>
+      </p>
+    </div>
+    <div class="head">
       <%= @user.first_name %> <%= @user.last_name %>'s Schedule
-    </h4>
+    </div>
     <div class="row">
       <div class="col-md-1 head">PERIOD</div>
       <div class="col-md-4 head">SECTION NAME</div>
@@ -20,7 +27,7 @@
         <div class="col-md-4"><%= enrollment.section.name %></div>
         <div class="col-md-5"><%= enrollment.section.course.description %></div>
         <div class="col-md-1"><%= enrollment.section.seats %></div>
-        <% if current_user.id == @user.id %>
+        <% if current_user.id == @user.id  && current_user.sections.count != 8 %>
         <div class="col-md-1">
           <%= link_to 'Drop', course_section_enrollment_path(enrollment.section.course, enrollment.section, enrollment), method: :delete, class: "btn btn-danger btn-xs" %>
         </div>
