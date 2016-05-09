@@ -23,9 +23,8 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-
     if @course.save
-      @course.set_department
+      @course.set_department(params[:course][:department_id])
       redirect_to courses_path
     else
       render 'new'
