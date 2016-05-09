@@ -27,7 +27,9 @@
         </div>
       <% else %>
         <div class="col-md-1">
+          <% if current_user.sections.count != 8 %>
           <%= link_to 'Register', new_course_section_enrollment_path(section.course, section), class: "btn btn-default btn-sm" %>
+          <% end %>
         </div>
       <% end %>
     </div>
