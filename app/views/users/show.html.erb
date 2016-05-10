@@ -41,6 +41,7 @@
       </div>
     </div>
     <% end %>
+    <% if current_user == @user %>
     <div class="col-md-1 text-center">
       <%= button_to "Confirm Schedule", user_path(current_user,
                                                   schedule_confirmed: true),
@@ -49,6 +50,7 @@
                                                   class: "btn btn-default btn-sm" %>
 
     </div>
+    <% end %>
   </div>
 </div>
 
