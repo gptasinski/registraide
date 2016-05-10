@@ -47,7 +47,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update(confirm_params)
+      flash[:message] = "Your schedule has been confirmed.
+                         Please contact an administrator to make any changes."
+      redirect_to user_path
+    elsif @user.update(user_params)
       redirect_to user_path
     else
       render 'edit'
@@ -56,9 +60,14 @@ class UsersController < ApplicationController
 
 
 
+
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :id_number, :current_homeroom, :password, :admin, :grade_level)
+    end
+
+    def confirm_params
+      params.permit(:schedule_confirmed)
     end
 
 end
