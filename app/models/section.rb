@@ -36,6 +36,10 @@ class Section < ActiveRecord::Base
     end
   end
 
+  def set_category(params)
+    self.category = params
+  end
+
 
 
 

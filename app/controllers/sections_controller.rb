@@ -20,7 +20,10 @@ class SectionsController < ApplicationController
 
   def create
     @section = Section.new(section_params)
+    @section.set_category(params[:category])
+    # raise params.inspect
     if @section.save
+
       @course.sections << @section
       redirect_to course_path(@course)
     else
@@ -51,5 +54,7 @@ class SectionsController < ApplicationController
     def section_params
       params.require(:section).permit(:name, :code, :description, :seats, :period_id, :closed)
     end
+
+
 
 end
