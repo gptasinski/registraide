@@ -39,4 +39,15 @@ module ApplicationHelper
     @periods = Period.all
   end
 
+
+  # ----------------------------------------------------------------------------------------
+
+
+def view_side_nav
+  render 'shared/classes_by' if current_user
+end
+
+
+
+
 end

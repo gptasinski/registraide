@@ -23,9 +23,8 @@
       </div>
     </div>
   </nav>
-  <% if current_user %>
-    <%= render 'shared/classes_by' %>
-  <% end %>
+
+  <%= view_side_nav %>
 
 
 <%= yield %>
