@@ -1,8 +1,8 @@
 <div class="col-md-2">
   <%= link_to 'All Courses', courses_path, class: "btn btn-default btn-sm top-buttons" %>
-  <%= link_to 'All Classes', sections_all_path, class: "btn btn-default btn-sm top-buttons" %>
-  <%= link_to 'Classes by Department', departments_path, class: "btn btn-default btn-sm top-buttons"%>
-  <%= link_to 'Classes by Period', periods_path, class: "btn btn-default btn-sm top-buttons" %>
+  <%= link_to 'All Sections', sections_all_path, class: "btn btn-default btn-sm top-buttons" %>
+  <%= link_to 'Sections by Department', departments_path, class: "btn btn-default btn-sm top-buttons"%>
+  <%= link_to 'Sections by Period', periods_path, class: "btn btn-default btn-sm top-buttons" %>
   <% if @departments || @department %>
     <% department_order.each do |department| %>
       <%= link_to "#{ department.name }", department_path(department), class: "btn btn-default btn-sm top-buttons dept-btns", id: "dept/#{department.id}" %>
