@@ -1,5 +1,5 @@
 <%- headers = ['Period', 'Section Name'] -%>
 <%= CSV.generate_line headers %>
 <%- schedule_order(@enrollments).each do |enrollment| -%>
-<%= CSV.generate_line([enrollment.section.period_id, enrollment.section.name]) %>
+  <%= CSV.generate_line([enrollment.section.period_id, enrollment.section.name]) %>
 <%- end -%>
