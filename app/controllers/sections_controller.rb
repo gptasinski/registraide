@@ -2,7 +2,7 @@ class SectionsController < ApplicationController
   include ApplicationHelper
   before_action :admin_auth?, except: [:all]
   before_action :find_course, except: [:all]
-  before_action :find_section, only: [:edit, :update, :show]
+  before_action :find_section, only: [:edit, :update, :show, :destroy]
 
 
   def show
@@ -38,7 +38,7 @@ class SectionsController < ApplicationController
 
   def destroy
     @section.destroy
-    redirect_to course_path(@course)
+    redirect_to sections_all_path
   end
 
   def all
