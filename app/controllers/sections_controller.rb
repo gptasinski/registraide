@@ -8,7 +8,6 @@ class SectionsController < ApplicationController
   def show
     @section = Section.find_by(id: params[:id])
     @students = @section.students
-    # raise params.inspect
   end
 
   def edit
@@ -21,9 +20,7 @@ class SectionsController < ApplicationController
   def create
     @section = Section.new(section_params)
     @section.set_category(params[:category])
-    # raise params.inspect
     if @section.save
-
       @course.sections << @section
       redirect_to course_path(@course)
     else
