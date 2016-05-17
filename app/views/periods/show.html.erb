@@ -5,9 +5,7 @@
 
     <div class="row pre-scrollable course-box">
       <% @period.sections.each do |section| %>
-        <%= render partial: '/shared/section_output', locals: {section: section} %>
-
-      </div>
+        <%= render partial: '/shared/section_output', locals: { section: section } %>
       <% end %>
     </div>
   </div>

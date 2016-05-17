@@ -13,11 +13,12 @@
   </div>
   <div class="col-md-1"><%= section.period_id %></div>
   <% if current_user.admin %>
-            <%= link_to 'Edit', edit_course_section_path(section.course, section), class: "btn btn-default btn-sm" %>
-            <%= link_to 'Delete', course_section_path(section.course, section), method: :delete, data: { confirm: "Are you sure you want to delete #{ section.code }?" }, class: "btn btn-default btn-sm" %>
-            <%= link_to 'View Enrolled Students', course_section_path(section.course, section), class: "btn btn-default btn-sm" %>
-        <% else %>
-            <% if section.seats != 0 && !current_user.schedule_confirmed %>
-              <%= link_to 'Register', new_course_section_enrollment_path(section.course, section), class: "btn btn-default btn-sm" %>
-            <% end %>
-        <% end %>
+    <%= link_to 'Edit', edit_course_section_path(section.course, section), class: "btn btn-default btn-sm" %>
+    <%= link_to 'Delete', course_section_path(section.course, section), method: :delete, data: { confirm: "Are you sure you want to delete #{ section.code }?" }, class: "btn btn-default btn-sm" %>
+    <%= link_to 'View Enrolled Students', course_section_path(section.course, section), class: "btn btn-default btn-sm" %>
+  <% else %>
+    <% if section.seats != 0 && !current_user.schedule_confirmed %>
+      <%= link_to 'Register', new_course_section_enrollment_path(section.course, section), class: "btn btn-default btn-sm" %>
+    <% end %>
+  <% end %>
+</div>

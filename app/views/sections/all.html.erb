@@ -2,12 +2,12 @@
   <div class="col-md-10 box">
 
     <%= render '/shared/section_headers' %>
+
     <div class="row pre-scrollable course-box">
       <% sections_by_course_name(@sections).each do |section| %>
         <%= render partial: '/shared/section_output', locals: {section: section} %>
-
-      </div>
       <% end %>
     </div>
+
   </div>
 </div>
