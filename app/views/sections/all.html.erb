@@ -1,39 +1,13 @@
 <div class="container-fluid">
-  <div class="col-md-10">
-    <div class="row course-title-box">
-      <div class="col-md-1 head code-col">CODE</div>
-      <div class="col-md-1 head">SEATS</div>
-      <div class="col-md-5 head">NAME & DESCRIPTION</div>
-      <div class="col-md-1 head">PERIOD</div>
-    </div>
+  <div class="col-md-10 box">
+
+    <%= render '/shared/section_headers' %>
+
     <div class="row pre-scrollable course-box">
       <% sections_by_course_name(@sections).each do |section| %>
-      <div class="row output">
-        <div class="col-md-1 code-col bold"><%= section.code %></div>
-        <div class="col-md-1">
-          <% if section.seats == 0 %>
-            <p class="closed">CLOSED</p>
-          <% else %>
-            <%= section.seats %>
-          <% end %>
-        </div>
-        <div class="col-md-5">
-          <div class="bold"><%= section.name %></div>
-          <div class="col-md-offset-1"><%= section.description %></div>
-        </div>
-        <div class="col-md-1"><%= section.period_id %></div>
-
-        <% if current_user.admin %>
-            <%= link_to 'Edit', edit_course_section_path(@course, section), class: "btn btn-default btn-sm" %>
-            <%= link_to 'Delete', course_section_path(@course, section),method: :delete, data: { confirm: "Are you sure you want to delete #{ section.code }?" }, class: "btn btn-default btn-sm" %>
-            <%= link_to 'View Enrolled Students', course_section_path(section.course, section), class: "btn btn-default btn-sm" %>
-        <% else %>
-          <% if section.seats != 0 && !current_user.schedule_confirmed %>
-            <%= link_to 'Register', new_course_section_enrollment_path(@course, section), class: "btn btn-default btn-sm" %>
-          <% end %>
-        <% end %>
-      </div>
+        <%= render partial: '/shared/section_output', locals: {section: section} %>
       <% end %>
     </div>
+
   </div>
 </div>
