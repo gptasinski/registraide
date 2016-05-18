@@ -39,7 +39,6 @@
 
 <div class="container-fluid">
     <div class="col-md-offset-10 col-md-2">
-      <%= link_to 'Download as CSV', enrollments_all_path(format: :csv), class: "btn btn-default btn-sm new-cl-btn" %>
-      <%= link_to 'Master List', enrollments_master_path, class: "btn btn-default btn-sm new-cl-btn" %>
+      <%= render '/shared/enrollments_as_csv' %>
     </div>
 </div>
