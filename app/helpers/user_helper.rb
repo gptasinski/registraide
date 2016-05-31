@@ -5,16 +5,12 @@ module UserHelper
     enrollments.sort_by { |enrollment| enrollment.section.period_id }
   end
 
-  def master_order(enrollments)
-    enrollments.sort_by { |enrollment| enrollment.section.code }
+  def student_index(students, student)
+    "#{ student_order(students).index(student) + 1 }."
   end
 
-  def student_index(student)
-    "#{ ordered_students.index(student) + 1 }."
-  end
-
-  def ordered_students
-    User.where(admin: false).order(:last_name, :first_name)
+  def student_order(students)
+    students.order(:last_name, :first_name)
   end
 
 
