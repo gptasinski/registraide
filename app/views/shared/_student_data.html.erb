@@ -8,7 +8,7 @@
     <div class="col-md-2 head">GRADE LEVEL</div>
   </div>
 
-  <% @students.each do |student| %>
+  <% ordered_students.each do |student| %>
     <div class="row output">
       <div class="col-md-1"><%= student_index(student) %></div>
       <div class="col-md-2"><%= student.last_name %></div>
