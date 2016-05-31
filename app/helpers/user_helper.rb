@@ -6,7 +6,11 @@ module UserHelper
   end
 
   def student_index(student)
-    "#{ @students.index(student) + 1 }."
+    "#{ student_order.index(student) + 1 }."
+  end
+
+  def student_order
+    all = User.where(admin: false).order(:last_name, :first_name)
   end
 
 
