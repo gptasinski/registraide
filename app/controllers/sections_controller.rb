@@ -29,6 +29,7 @@ class SectionsController < ApplicationController
   end
 
   def update
+    @section.set_category(params[:category]) if params[:category]
     if @section.update(section_params)
       redirect_to course_path(@course)
     else

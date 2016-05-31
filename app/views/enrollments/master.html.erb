@@ -6,7 +6,7 @@
         <%= render '/shared/enrollments_as_csv' %>
       </div>
     </div>
-    <% @enrollments.each do |enrollment| %>
+    <% master_order(@enrollments).each do |enrollment| %>
     <% if enrollment.student %>
     <div class="row master-course">
       <div class="col-md-3"><%= enrollment.section.name %></div>
