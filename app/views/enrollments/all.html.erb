@@ -14,10 +14,10 @@
         <div class="col-md-5 sub-head">SECTION NAME</div>
       </div>
     </div>
-    <% student_order.each do |student| %>
+    <% student_order(@students).each do |student| %>
     <div class="row pre-scrollable">
       <div class="col-md-11">
-        <div class="col-md-1"><%= student_index(student) %></div>
+        <div class="col-md-1"><%= student_index(@students, student) %></div>
         <div class="col-md-2"><%= student.last_name %>, <%= student.first_name %></div>
         <div class="col-md-2"><%= student.id_number %></div>
       </div>
