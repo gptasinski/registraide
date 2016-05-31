@@ -1,21 +1,29 @@
 <div class="container">
-
-  <div class="row">
-    <div class="col-md-offset-3 col-md-6 text-center">
-      <h4>Welcome to Registraide for The Ogden International High School of Chicago.</h4>
-      <h4>Sign up below with your student information or</h4>
-      <h4>log in with your email and secure password</h4>
-      <h4>to be registering for classes in no time!</h4>
+  <% if !current_user %>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6 text-center">
+        <h4>Welcome to Registraide for The Ogden International High School of Chicago.</h4>
+        <h4>Sign up below with your student information or</h4>
+        <h4>log in with your email and secure password</h4>
+        <h4>to be registering for classes in no time!</h4>
+      </div>
     </div>
-  </div>
 
-  <div class="row text-center">
-      <div class="col-md-offset-4 col-md-2 col-sm-offset-4 col-sm-2"><%= link_to 'Sign Up', new_user_path, class: "btn btn-lg btn-default splash-btns", id: "sign-up" %></div>
-      <div class="col-md-2 col-sm-2"><%= link_to 'Log In', login_path, class: "btn btn-lg btn-default splash-btns", id: "log-in" %></div>
-  </div>
-  <div class="row">
-    <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8", id="replacement-space"></div>
-  </div>
+    <div class="row text-center">
+        <div class="col-md-offset-4 col-md-2 col-sm-offset-4 col-sm-2"><%= link_to 'Sign Up', new_user_path, class: "btn btn-lg btn-default splash-btns", id: "sign-up" %></div>
+        <div class="col-md-2 col-sm-2"><%= link_to 'Log In', login_path, class: "btn btn-lg btn-default splash-btns", id: "log-in" %></div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <%= image_tag "https://www.google.com/imgres?imgurl=https%3A%2F%2Fs-media-cache-ak0.pinimg.com%2F236x%2Fe4%2F95%2Ffc%2Fe495fcefd609fea5ec03db9b0ef47015.jpg&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fwalkerarts%2Fowls%2F&docid=AijakRgKr7tuCM&tbnid=EnAQWR6SJiw7lM%3A&w=236&h=278&bih=652&biw=1274&ved=0ahUKEwjI0fuG9ITNAhUMSFIKHS0RDNkQMwglKAgwCA&iact=mrc&uact=8", class: "owl_pic" %>
+      </div>
+    </div>
+  <% end %>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8", id="replacement-space"></div>
+    </div>
+
 
 
     <div id="sign-up-space"></div>
