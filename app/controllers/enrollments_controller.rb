@@ -36,6 +36,7 @@ class EnrollmentsController < ApplicationController
 
   def all
     @students = User.where(admin: false)
+    @enrollments = Enrollment.all
     respond_to do |format|
       format.html
       format.csv do
