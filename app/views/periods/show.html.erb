@@ -3,7 +3,7 @@
 
     <%= render '/shared/section_headers' %>
 
-    <div class="row pre-scrollable course-box">
+    <div class="row pre-scrollable section-box">
       <% @period.sections.each do |section| %>
         <%= render partial: '/shared/section_output', locals: { section: section } %>
       <% end %>
