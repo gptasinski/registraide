@@ -72,6 +72,10 @@ module EnrollmentHelper
     student.enrollments.sort_by { |enrollment| enrollment.section.period_id }
   end
 
+  def all_students_enrollment_order(enrollments)
+    enrollments.sort_by { |e| e.student.last_name }
+  end
+
 
 
 
