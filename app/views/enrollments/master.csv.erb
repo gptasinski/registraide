@@ -3,7 +3,7 @@
 <%- @enrollments.each do |enrollment| -%>
   <% if enrollment.student %>
     <%= CSV.generate_line([enrollment.section.name,
-                          enrollment.section.code,
+                          enrollment.section.period_id,
                           enrollment.student.id_number,
                           enrollment.student.last_name,
                           enrollment.student.first_name,
