@@ -8,7 +8,7 @@
 
         <% course.sections.each do |section| %>
           <div class="row">
-            <div class="col-md-8">SECTION: <%= section.code %> | <%= section.name %></div>
+            <div class="col-md-8">SECTION: <%= section.name %> | Period <%= section.period_id %> </div>
             <div class="col-md-4">ENROLLED: <%= section.students.count %>/<%= possible_seats(section) %></div>
           </div>
 
