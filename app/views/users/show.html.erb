@@ -4,15 +4,9 @@
 
 <div class="container-fluid">
   <div class="col-md-10">
-    <div class="row">
-      <p class="message"><b>ATTENTION!</b></br>
-        Once you have been registered for a full schedule, you can no longer drop or add classes.</br>
-        If changes have to be made, you must obtain the special permission of an administrator.</br>
-        Schedules <b>CAN NOT</b> be edited once they are complete!</br>
-      </p>
-    </div>
+
     <div class="head">
-      <%= @user.first_name %> <%= @user.last_name %>'s Schedule
+      <p class="head"><%= @user.first_name %> <%= @user.last_name %>'s Schedule</p>
     </div>
     <div class="row">
       <div class="col-md-1 head">PERIOD</div>
@@ -58,7 +52,7 @@
       <%= button_to "Confirm Schedule", user_path(current_user,
                                                   schedule_confirmed: true),
                                                   method: :patch,
-                                                  data: {confirm: "Are you sure you are ready to lock you schedule?"},
+                                                  data: {confirm: "Once you have been registered for a full schedule, you can no longer drop or add classes. If changes have to be made, you must obtain the special permission of an administrator. Schedules CAN NOT be edited once they are complete! Are you sure you want to do this #{current_user.first_name}?"},
                                                   class: "btn btn-default btn-sm" %>
 
     </div>
