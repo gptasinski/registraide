@@ -5,7 +5,7 @@
     <div class="col-md-2 head">EMAIL</div>
     <div class="col-md-1 head">ID#</div>
     <div class="col-md-2 head">HOMEROOM</div>
-    <div class="col-md-2 head">GRADE LEVEL</div>
+    <div class="col-md-1 head">GRADE LEVEL</div>
   </div>
 
   <% student_order(@students).each do |student| %>
@@ -16,9 +16,14 @@
       <div class="col-md-2"><%= student.email %></div>
       <div class="col-md-1"><%= student.id_number %></div>
       <div class="col-md-2"><%= student.current_homeroom %></div>
-      <div class="col-md-2"><%= student.grade_level %></div>
+      <div class="col-md-1"><%= student.grade_level %></div>
       <div class="col-md-1">
         <%= link_to 'Schedule', user_path(student), class: "btn btn-default btn-sm my-btn" %>
+      </div>
+      <div class="col-md-1">
+        <% if student.schedule_confirmed %>
+          CONFIRMED
+        <% end %>
       </div>
     </div>
   <% end %>
