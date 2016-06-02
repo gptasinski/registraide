@@ -76,6 +76,9 @@ module EnrollmentHelper
     enrollments.sort_by { |e| e.student.last_name }
   end
 
+  def enrollment_master_order
+    Enrollment.joins(:section).merge(Section.order(:period_id, :name))
+  end
 
 
 

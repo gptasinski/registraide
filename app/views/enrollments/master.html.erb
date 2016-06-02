@@ -15,7 +15,7 @@
       <div class="col-md-3 head">Email</div>
       <div class="col-md-1 head">Grade Level</div>
     </div>
-    <% @enrollments.each do |enrollment| %>
+    <% enrollment_master_order.each do |enrollment| %>
       <% if enrollment.student %>
       <div class="row master-course">
         <div class="col-md-3"><%= enrollment.section.name %></div>
