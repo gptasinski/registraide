@@ -7,6 +7,7 @@ class PeriodsController < ApplicationController
 
   def show
     @period = Period.find(params[:id])
+    @sections = @period.sections
   end
 
 end

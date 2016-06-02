@@ -1,10 +1,13 @@
 <div class="container-fluid">
   <div class="col-md-10 box">
+    <div class="row head">
+      <%= @period.name %> Period Sections:
+    </div>
 
     <%= render '/shared/section_headers' %>
 
     <div class="row pre-scrollable section-box">
-      <% @period.sections.each do |section| %>
+      <% by_period_order(@sections).each do |section| %>
         <%= render partial: '/shared/section_output', locals: { section: section } %>
       <% end %>
     </div>

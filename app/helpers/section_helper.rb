@@ -20,4 +20,8 @@ module SectionHelper
   def possible_seats(section)
     section.seats + section.students.count
   end
+
+  def sections_all_order
+    Section.order(:name)
+  end
 end

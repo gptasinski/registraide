@@ -3,6 +3,7 @@ class Section < ActiveRecord::Base
   has_many :enrollments, dependent: :destroy
   has_many :students, through: :enrollments
   belongs_to :period
+  has_one :department, through: :course
 
 
   def status
