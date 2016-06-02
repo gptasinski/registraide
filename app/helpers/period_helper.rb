@@ -11,4 +11,5 @@ module PeriodHelper
   def by_period_order(sections)
     sections.sort_by { |sec| sec.course.department.name }
   end
+
 end

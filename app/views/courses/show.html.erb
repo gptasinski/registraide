@@ -4,7 +4,7 @@
     <%= render '/shared/section_headers' %>
 
     <div class="row pre-scrollable course-box">
-      <% @sections.each do |section| %>
+      <% course_show_order(@sections).each do |section| %>
         <%= render partial: '/shared/section_output', locals: { section: section } %>
       <% end %>
     </div>
