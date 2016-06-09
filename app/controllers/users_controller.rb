@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include ApplicationHelper
+  include UserHelper
   before_action :authorize, :authorized_to_edit, only: [:edit, :update, :show]
 
   def index
@@ -56,6 +57,13 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    reset_user_sections(@user)
+    @user.destroy
+    redirect_to users_path
   end
 
 

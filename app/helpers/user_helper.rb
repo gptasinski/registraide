@@ -13,6 +13,13 @@ module UserHelper
     students.order(:last_name, :first_name)
   end
 
+  def reset_user_sections(user)
+    sections = user.sections
+    sections.each do |sec|
+      sec.reset_section
+    end
+  end
+
 
 
 end
