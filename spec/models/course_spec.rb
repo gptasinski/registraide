@@ -8,6 +8,7 @@ describe "Courses" do
 
 
 
+
   it "has a name" do
     expect(test_course.name).to eq("Test Course")
   end
@@ -43,14 +44,8 @@ describe "Courses" do
   describe "#set_department" do
     it "saves a course to the its corresponding department" do
       test_course.save
-      test_course.set_department
+      test_course.set_department(1)
       expect(test_course.department_id).to eq(1)
-    end
-
-    it "saves courses not including [ART, MTH, SCI, IAS, LAS, ENG, PED] to the 'General' department" do
-      general_course.save
-      general_course.set_department
-      expect(general_course.department_id).to eq(8)
     end
   end
 
@@ -60,7 +55,6 @@ describe "Courses" do
 
     it "returns 0 if there are no sections created for the course" do
       expect(general_course.seats_available).to eq(0)
-      # expect(test_course.sections.count).to eq(0)
     end
 
     it "returns 0 if there are no available seats in sections for the course" do
@@ -69,24 +63,7 @@ describe "Courses" do
 
     it "returns the number of remaining seats if there are seats available" do
       test_course.sections << test_section
-
       expect(test_course.seats_available).to eq(123)
-    end
-  end
-
-  describe "#course_order" do
-    context "when it orders the courses" do
-      it "has a first course with lesser value than the last" do
-        expect(course_order.first.name).to be < course_order.last.name
-      end
-
-      it "has a first course with lesser value than the second" do
-        expect(course_order.first.name).to be < course_order[1] .name
-      end
-
-      it "has a last course with the greatest value" do
-        expect(course_order[-1].name).to be > course_order[-2].name
-      end
     end
   end
 end
