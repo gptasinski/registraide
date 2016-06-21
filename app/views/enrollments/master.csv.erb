@@ -1,6 +1,6 @@
 <%- headers = ['Section Name', 'Section Code', 'Student Id', 'Student Last', 'Student First', 'Student Email', 'Student Grade Level'] -%>
 <%= CSV.generate_line headers %>
-<%- @enrollments.each do |enrollment| -%>
+<%- enrollment_master_order.each do |enrollment| -%>
   <% if enrollment.student %>
     <%= CSV.generate_line([enrollment.section.name,
                           enrollment.section.period_id,

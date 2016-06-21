@@ -39,6 +39,9 @@ class EnrollmentsController < ApplicationController
     @enrollments = Enrollment.all
     respond_to do |format|
       format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachemnt; filename = 'all-student-enrollments-list.xlsx"
+      }
       format.csv do
         headers['Content-Disposition'] = "attachment; filename=\"all-students-schedules\""
         headers['Content-Type'] ||= 'text/csv'
@@ -50,6 +53,9 @@ class EnrollmentsController < ApplicationController
     @enrollments = Enrollment.all.sort_by { |e| e.section.name}
     respond_to do |format|
       format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachemnt; filename = 'enrollment-master-list.xlsx"
+      }
       format.csv do
         headers['Content-Disposition'] = "attachment; filename=\"all-master-enrollments\""
         headers["Content-Type"] ||= 'text/csv'

@@ -1,0 +1,14 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "enrollment master list") do |sheet|
+  sheet.add_row ['Section Name', 'Period', 'Student Id', 'Student Last', 'Student First', 'Student Email', 'Student Grade Level']
+  enrollment_master_order.each do |enrollment|
+    sheet.add_row [enrollment.section.name,
+                          enrollment.section.period_id,
+                          enrollment.student.id_number,
+                          enrollment.student.last_name,
+                          enrollment.student.first_name,
+                          enrollment.student.email,
+                          enrollment.student.grade_level
+                         ]
+  end
+end
