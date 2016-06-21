@@ -50,6 +50,9 @@ class CoursesController < ApplicationController
     @courses = Course.all
     respond_to do |format|
       format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachement; filename='courses-master.xlsx"
+      }
       format.csv do
         headers['Content-Disposition'] = "attachment; filename=\"courses-master\""
         headers['Content-Type'] ||= 'text/csv'

@@ -34,6 +34,9 @@
         <%= link_to 'Download Schedule as CSV', user_path(format: :csv), class: "btn btn-default btn-sm" %>
       </div>
       <div class="col-md-offset-4">
+        <%= link_to 'Download Schedule as Excel', user_path(format: :xlsx), class: "btn btn-default btn-sm" %>
+      </div>
+      <div class="col-md-offset-4">
         <%= link_to 'Reopen Student Schedule', user_path(@user, schedule_confirmed: false),
                                                method: :patch,
                                                data: {confirm: "Are you sure you want to open #{@user.first_name} #{@user.last_name}'s schedule?"},

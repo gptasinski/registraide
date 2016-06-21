@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @students = User.where(admin: false)
     respond_to do |format|
       format.html
+      format.xlsx {
+        response.headers["Content-Disposition"] = "attachement; filename = all-students.xlsx"
+      }
       format.csv do
         headers['Content-Disposition'] = "attachment; filename=\"student-list\""
         headers['Content-Type'] ||= 'text/csv'
@@ -21,6 +24,9 @@ class UsersController < ApplicationController
     @enrollment = Enrollment.find_by(id: params[:enrollment_id])
     respond_to do |format|
       format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename = #{@user.first_name}_#{@user.last_name}_Schedule.xlsx"
+      }
       format.csv do
         headers['Content-Disposition'] = "attachment; filename=\"#{@user.first_name} #{@user.last_name}-schedule\""
         headers['Content-Type'] ||= 'text/csv'
