@@ -1,12 +1,7 @@
 <div class="container -fluid">
 
   <div class="col-md-10">
-    <div class="row">
-      <div class="col-md-offset-9 col-md-3">
-        <%= link_to 'Download as CSV', enrollments_master_path(format: :csv), class: "btn btn-default btn-sm new-cl-btn" %>
-        <%= link_to 'Download as Excel', enrollments_master_path(format: :xlsx), class: "btn btn-default btn-sm new-cl-btn" %>
-      </div>
-    </div>
+
     <div class="row">
       <div class="col-md-3 head">Section Name</div>
       <div class="col-md-1 head">Period</div>
@@ -32,4 +27,13 @@
     <% end %>
 
   </div>
+</div>
+
+<div class="container-fluid">
+    <div class="col-md-offset-8 col-md-2">
+      <%= link_to 'Download as CSV', enrollments_master_path(format: :csv), class: "btn btn-default btn-sm new-cl-btn" %>
+    </div>
+    <div class="col-md-2">
+      <%= link_to 'Download as Excel', enrollments_master_path(format: :xlsx), class: "btn btn-default btn-sm new-cl-btn" %>
+    </div>
 </div>

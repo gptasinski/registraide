@@ -30,25 +30,21 @@
     <% end %>
     <% if current_user.admin %>
     <div class="row">
-      <div class="col-md-offset-4">
+      <div class="col-md-11">
         <%= link_to 'Download Schedule as CSV', user_path(format: :csv), class: "btn btn-default btn-sm" %>
-      </div>
-      <div class="col-md-offset-4">
+
         <%= link_to 'Download Schedule as Excel', user_path(format: :xlsx), class: "btn btn-default btn-sm" %>
-      </div>
-      <div class="col-md-offset-4">
+
         <%= link_to 'Reopen Student Schedule', user_path(@user, schedule_confirmed: false),
                                                method: :patch,
                                                data: {confirm: "Are you sure you want to open #{@user.first_name} #{@user.last_name}'s schedule?"},
                                                class: "btn btn-default btn-sm"  %>
-      </div>
-      <div class="col-md-offset-4">
+
         <%= link_to 'Close Student Schedule', user_path(@user, schedule_confirmed: true),
                                                method: :patch,
                                                data: {confirm: "Are you sure you want to close #{@user.first_name} #{@user.last_name}'s schedule?"},
                                                class: "btn btn-default btn-sm"  %>
-      </div>
-      <div class="col-md-offset-4">
+
         <%= link_to 'Delete Student', user_path(@user),
                                       method: :delete,
                                       data: { confirm: "Are you sure you want to delete #{ @user.first_name} #{@user.last_name} and all of their enrollments?"},
@@ -57,7 +53,7 @@
     </div>
     <% end %>
     <% if current_user == @user && current_user.schedule_confirmed == false %>
-    <div class="col-md-1 text-center">
+    <div class="col-md-offset-10 col-md-1">
       <%= button_to "Confirm Schedule", user_path(current_user,
                                                   schedule_confirmed: true),
                                                   method: :patch,
