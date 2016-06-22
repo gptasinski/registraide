@@ -1,14 +1,7 @@
 <div class="container-fluid">
   <div class="col-md-10 new-form-box">
     <div class="row">
-      <%= form_for [@course, @section], class: "form-horizontal" do |form| %>
-      <%= render partial: 'form', locals: { form: form } %>
-      <div class="form-group">
-        <div class="col-md-4">
-          <%= form.submit :'Add Class', class: "btn btn-primary btn-sm" %>
-        </div>
-      </div>
-      <% end %>
+      <%= render partial: 'form', locals: { method: "post", submit_message: "Add Class" } %>
     </div>
   </div>
 </div>

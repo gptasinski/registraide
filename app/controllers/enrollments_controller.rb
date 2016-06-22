@@ -14,11 +14,8 @@ class EnrollmentsController < ApplicationController
       render 'enrolled'
     elsif  period_conflict(@user, @section.period_id)
       render 'period_conflict'
-    elsif @section.seats == 0
-      render 'full'
     else
       if @enrollment.save
-        # raise params.inspect
         @section.check_section_seats
         redirect_to user_path(@user)
       else
@@ -42,9 +39,6 @@ class EnrollmentsController < ApplicationController
       format.xlsx {
         response.headers['Content-Disposition'] = "attachemnt; filename = 'all-student-enrollments-list.xlsx"
       }
-      format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"all-students-schedules\""
-        headers['Content-Type'] ||= 'text/csv'
       end
     end
   end
@@ -56,9 +50,6 @@ class EnrollmentsController < ApplicationController
       format.xlsx {
         response.headers['Content-Disposition'] = "attachemnt; filename = 'enrollment-master-list.xlsx"
       }
-      format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"all-master-enrollments\""
-        headers["Content-Type"] ||= 'text/csv'
       end
     end
   end

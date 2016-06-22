@@ -1,5 +1,3 @@
-
-
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "all student enrollment list") do |sheet|
   sheet.add_row ['Last Name', 'First Name', 'Student Id', 'Grade Level', 'Advisory', 'Period', 'Section Code', 'Section Name']

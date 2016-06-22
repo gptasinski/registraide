@@ -1,14 +1,7 @@
 <div class="container-fluid">
   <div class="col-md-10 new-form-box">
     <div class="row">
-      <%= form_for [@course, @section], method: :patch, class: "form-horizontal" do |form| %>
-        <%= render partial: 'form', locals: { form: form } %>
-        <div class="form-group">
-          <div class="col-md-offset-10 col-md-2">
-            <%= form.submit :'Update Class', class: "btn btn-default btn-sm" %>
-          </div>
-        </div>
-      <% end %>
+      <%= render partial: 'form', locals: { method: "patch", submit_message: "Update Class" } %>
     </div>
   </div>
 </div>
