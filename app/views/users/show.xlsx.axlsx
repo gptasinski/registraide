@@ -1,5 +1,6 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Schedule") do |sheet|
+  sheet.add_row ["Schedule for:", @user.first_name, @user.last_name]
   sheet.add_row ["Period", "Section Name"]
   schedule_order(@enrollments).each do |enrollment|
     sheet.add_row [enrollment.section.period_id, enrollment.section.name]

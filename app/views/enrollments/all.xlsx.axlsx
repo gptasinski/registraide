@@ -2,11 +2,11 @@
 
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "all student enrollment list") do |sheet|
-  sheet.add_row ['Last Name', 'First Name', 'Student Id', 'Period', 'Student Email', 'Student Grade Level']
+  sheet.add_row ['Last Name', 'First Name', 'Student Id', 'Grade Level', 'Period', 'Section Code', 'Section Name']
   student_order(@students).each do |student|
-    sheet.add_row [student.last_name, student.first_name, student.id_number]
+    sheet.add_row [student.last_name, student.first_name, student.id_number, student.grade_level]
     student_enrollments(student).each do |enrollment|
-      sheet.add_row [ "", "", "", enrollment.section.period_id, enrollment.section.code, enrollment.section.name]
+      sheet.add_row [ "", "", "", "", enrollment.section.period_id, enrollment.section.code, enrollment.section.name]
     end
   end
 end

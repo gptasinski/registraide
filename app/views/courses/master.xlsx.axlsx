@@ -1,11 +1,12 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Courses Master List") do |sheet|
+  sheet.add_row ["Course Code", "Section Name", "Period", "Last Name", "First Name", "Email Address", "Student ID", "Grade Level"]
   @courses.each do |course|
     sheet.add_row [course.name]
     course.sections.each do |section|
-      sheet.add_row ["", section.name, section.period_id, possible_seats(section)]
+      sheet.add_row ["", section.name, section.period_id]
       section.students.each do |student|
-        sheet.add_row ["", "", student.last_name, student.first_name, student.email, student.id_number, student.grade_level]
+        sheet.add_row ["", "", "", student.last_name, student.first_name, student.email, student.id_number, student.grade_level]
       end
     end
   end
