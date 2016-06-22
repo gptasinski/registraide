@@ -39,9 +39,6 @@ class EnrollmentsController < ApplicationController
       format.xlsx {
         response.headers['Content-Disposition'] = "attachemnt; filename = 'all-student-enrollments-list.xlsx"
       }
-      format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"all-students-schedules\""
-        headers['Content-Type'] ||= 'text/csv'
       end
     end
   end
@@ -53,9 +50,6 @@ class EnrollmentsController < ApplicationController
       format.xlsx {
         response.headers['Content-Disposition'] = "attachemnt; filename = 'enrollment-master-list.xlsx"
       }
-      format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"all-master-enrollments\""
-        headers["Content-Type"] ||= 'text/csv'
       end
     end
   end

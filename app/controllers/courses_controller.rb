@@ -53,9 +53,6 @@ class CoursesController < ApplicationController
       format.xlsx {
         response.headers['Content-Disposition'] = "attachement; filename='courses-master.xlsx"
       }
-      format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"courses-master\""
-        headers['Content-Type'] ||= 'text/csv'
       end
     end
   end

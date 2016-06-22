@@ -10,9 +10,6 @@ class UsersController < ApplicationController
       format.xlsx {
         response.headers["Content-Disposition"] = "attachement; filename = all-students.xlsx"
       }
-      format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"student-list\""
-        headers['Content-Type'] ||= 'text/csv'
       end
     end
   end
@@ -27,9 +24,6 @@ class UsersController < ApplicationController
       format.xlsx {
         response.headers['Content-Disposition'] = "attachment; filename = #{@user.first_name}_#{@user.last_name}_Schedule.xlsx"
       }
-      format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"#{@user.first_name} #{@user.last_name}-schedule\""
-        headers['Content-Type'] ||= 'text/csv'
       end
     end
   end
