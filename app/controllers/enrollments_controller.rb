@@ -14,11 +14,8 @@ class EnrollmentsController < ApplicationController
       render 'enrolled'
     elsif  period_conflict(@user, @section.period_id)
       render 'period_conflict'
-    elsif @section.seats == 0
-      render 'full'
     else
       if @enrollment.save
-        # raise params.inspect
         @section.check_section_seats
         redirect_to user_path(@user)
       else
