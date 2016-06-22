@@ -1,5 +1,0 @@
-<%- headers = ['Last Name', 'First Name', 'Email', 'Student ID#', 'Current Homeroom', 'Grade Level'] -%>
-<%= CSV.generate_line headers %>
-<%- student_order(@students).each do |student| -%>
-  <%= CSV.generate_line([student.last_name, student.first_name, student.email, student.id_number, student.current_homeroom, student.grade_level]) %>
-<%- end -%>
