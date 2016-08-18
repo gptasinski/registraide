@@ -26,9 +26,14 @@ class EnrollmentsController < ApplicationController
 
   def destroy
     @enrollment = Enrollment.find_by(id: params[:id])
+    @student = @enrollment.student
     @section.reset_section
     @enrollment.destroy
-    redirect_to user_path(@user)
+    if @user.admin
+      redirect_to user_path(@student)
+    else
+      redirect_to user_path(@user)
+    end
   end
 
   def all

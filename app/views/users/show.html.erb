@@ -21,7 +21,7 @@
         <div class="col-md-4"><%= enrollment.section.name %></div>
         <div class="col-md-5"><%= enrollment.section.course.description %></div>
         <div class="col-md-1"><%= enrollment.section.seats %></div>
-        <% if current_user.id == @user.id  && !current_user.schedule_confirmed %>
+        <% if current_user.id == @user.id && !current_user.schedule_confirmed || current_user.admin %>
         <div class="col-md-1">
           <%= link_to 'Drop', course_section_enrollment_path(enrollment.section.course, enrollment.section, enrollment), method: :delete, class: "btn btn-danger btn-xs" %>
         </div>
