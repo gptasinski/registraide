@@ -53,7 +53,6 @@ class CoursesController < ApplicationController
       format.xlsx {
         response.headers['Content-Disposition'] = "attachement; filename='courses-master.xlsx"
       }
-      end
     end
   end
 
