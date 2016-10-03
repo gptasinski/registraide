@@ -39,7 +39,6 @@ class EnrollmentsController < ApplicationController
       format.xlsx {
         response.headers['Content-Disposition'] = "attachemnt; filename = 'all-student-enrollments-list.xlsx"
       }
-      end
     end
   end
 
@@ -50,7 +49,6 @@ class EnrollmentsController < ApplicationController
       format.xlsx {
         response.headers['Content-Disposition'] = "attachemnt; filename = 'enrollment-master-list.xlsx"
       }
-      end
     end
   end
 
